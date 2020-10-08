@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Test your things</title>
+  </head>
+  <body>
+    <div id="ip"></div>
+    <!-- <iframe width="609" height="609" src="https://cybermap.kaspersky.com/en/widget/dynamic/dark" frameborder="0"> -->
+
+      <script type="text/javascript">
+      function getIP(){
+        fetch('https://api.ipify.org?format=json')
+        .then((res)=>{
+          return res.json();
+        })
+        .then((data)=>{
+          console.log(data);
+          document.getElementById("ip").innerHTML=data["ip"];
+        }).catch((err)=>{
+          console.log(err);
+        });
+      }
+      getIP();
+      </script>
+
+  </body>
+</html>
